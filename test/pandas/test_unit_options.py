@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 #
 # Copyright (c) 2012-2020 Snowflake Computing Inc. All right reserved.
 #
@@ -22,5 +20,5 @@ def test_pandas_option_reporting(caplog):
         from snowflake.connector.options import pandas, pyarrow, MissingPandas
         assert not isinstance(pandas, MissingPandas)
         assert not isinstance(pyarrow, MissingPandas)
-        assert any(r.startswith("Cannot determine if compatible pyarrow is installed because of missing package(s) "
-                                 "from dict_keys([") for r in caplog.messages)
+        assert any([r.startswith("Cannot determine if compatible pyarrow is installed because of missing package(s) "
+                                 "from dict_keys([") for r in caplog.messages])
